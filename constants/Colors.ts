@@ -19,3 +19,12 @@ export default {
     tabIconSelected: tintColorDark,
   },
 };
+
+export const colors = {
+
+  darkGray: 'darkgray',
+  lightGray: '#FBFBFB',
+  brandColor: '#3787EB',
+  secondaryColor: "#EBF4FD"
+
+}

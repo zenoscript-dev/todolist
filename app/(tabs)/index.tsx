@@ -2,12 +2,18 @@ import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { ScrollView, Text, View } from '@/components/Themed';
+import TodoListItem from '@/components/TodoList/TodoListItem';
+import { colors } from '@/constants/Colors';
 
 export default function TabOneScreen() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={{alignItems: 'flex-start'}}>
-      <View>
-        <Text style={styles.title}>Tab One</Text>
+      <View style={{width: '100%'}}>
+      <TodoListItem title='Read Books' icon='📚' time='9:00 - 12:00'/>
+      <TodoListItem title='Read Books' icon='🙂' time='9:00 - 12:00'/>
+      <TodoListItem title='Read Books' icon='📚' time='9:00 - 12:00'/>
+      <TodoListItem title='Read Books' icon='📚' time='9:00 - 12:00'/>
+      <TodoListItem title='Read Books' icon='📚' time='9:00 - 12:00'/>
       </View>
     </ScrollView>
   );

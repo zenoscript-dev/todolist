@@ -1,12 +1,15 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { router, Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 import { useColorScheme } from '@/components/useColorScheme';
+import { Pressable } from 'react-native';
+import Colors from '@/constants/Colors';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -52,7 +55,11 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="createTodo" options={{ presentation: 'fullScreenModal', headerLeft: ()=>
+          <Pressable onPress={()=> router.back()}>
+            <AntDesign name="left" size={24} color={colorScheme === "dark" ? Colors.dark.text: Colors.light.text} />
+          </Pressable>
+        ,title:  "Create New Todo"}} />
       </Stack>
     </ThemeProvider>
   );

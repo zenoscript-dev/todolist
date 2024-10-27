@@ -1,6 +1,6 @@
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link, Tabs } from "expo-router";
+import { Link, router, Tabs } from "expo-router";
 import { Pressable } from "react-native";
 
 import Colors from "@/constants/Colors";
@@ -26,6 +26,7 @@ export default function TabLayout() {
     headerRightContainerStyle: {
       paddingRight: 20,
     },
+    tabBarShowLabel: false,
   };
 
   return (
@@ -42,7 +43,9 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           ...headerStyles,
           headerRight: () => <Text>red</Text>,
-          headerLeft: () => <Text>red</Text>,
+          headerLeft: () => <Pressable onPress={()=>{
+            router.navigate("/createTodo")
+          }}><Text>red</Text></Pressable>,
         }}
       />
       <Tabs.Screen
